@@ -13,6 +13,9 @@ const counterSlice = createSlice({
       // immutable state based off those changes
       state.count += 1
     },
+    incrementByAmount: (state, action) => {
+      state.count += action.payload
+    },
     decremented: state => {
       if (state.count > 0)
         state.count -= 1
@@ -23,7 +26,7 @@ const counterSlice = createSlice({
   }
 })
 
-export const { incremented, decremented } = counterSlice.actions
+export const { incremented, incrementByAmount, decremented } = counterSlice.actions
 
 export default counterSlice.reducer
 
